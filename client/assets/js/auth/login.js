@@ -1,5 +1,8 @@
+// Define backend url
 const backend_url = 'http://localhost:8000/';
 
+// Event called with login button pressed
+// Login user
 $("#connect").click(function () {
     $('#connect').prop('disabled', true);
 
@@ -28,4 +31,5 @@ $("#connect").click(function () {
     });
 });
 
+// Disable right click
 document.oncontextmenu = () => false;

@@ -1,6 +1,7 @@
 import ITool from './ITool.js';
 import { getColor } from '../modules/colors.js';
 
+// Rectangle tool (inspired by fabric JS exemple)
 class Rectangle extends ITool {
     constructor(canvas) {
         super(canvas);

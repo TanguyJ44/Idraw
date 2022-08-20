@@ -1,5 +1,6 @@
 import ITool from './ITool.js';
 
+// Eraser tool (inspired by fabric JS exemple)
 class Eraser extends ITool {
     constructor(canvas) {
         super(canvas);

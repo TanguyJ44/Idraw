@@ -1,5 +1,6 @@
 import { g_session, socket } from "./custom.js";
 
+// Scope chat element
 const toggler = document.getElementById('toggle-chat');
 const chat = document.getElementById('chat');
 
@@ -9,13 +10,16 @@ toggler.addEventListener('click', () => {
     chat.classList.toggle('chat-open');
 });
 
+// Send message when button is clicked
 document.querySelector('#chat-submit').addEventListener('click', async () => {
     await sendChatMessage();
 });
 
+// Create chat session id
 // random 32 character string
 const custom_id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
+// Send message with socket
 export const sendChatMessage = async () => {
     const message = document.getElementById('chat-input').value.trim();
     if (!message) return;
@@ -27,13 +31,16 @@ export const sendChatMessage = async () => {
         owner_id: g_session.owner_id ? g_session.owner_id : null
     });
 
+    // Clear input message box
     document.getElementById('chat-input').value = '';
 }
 
+// Special characters patch
 const htmlEntities = (str) => {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+// Load previous messages for new client connection
 export const handlePreviousMessages = (messages) => {
     messages.forEach(handleMessage);
 
@@ -42,6 +49,7 @@ export const handlePreviousMessages = (messages) => {
     });
 }
 
+// Build message element
 const handleMessage = (message) => {
     const chat = document.querySelector('#chat .content');
 

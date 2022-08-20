@@ -1,3 +1,4 @@
+// Itool class for all tools system (inspired by fabric JS exemple)
 class ITool {
     constructor(canvas) {
         if (this.constructor === ITool) {

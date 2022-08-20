@@ -1,3 +1,4 @@
+// Define color palette
 const colors = [
     '#1D1C1A',
     '#D26466',
@@ -18,9 +19,10 @@ colors.forEach(color => {
     colorsEl.appendChild(li);
 });
 
-// select black color
+// Select default black color
 colorsEl.children[0].children[0].classList.add('active');
 
+// Black color
 let color = '#000000';
 
 const callbacks = [];
@@ -28,7 +30,8 @@ export function setCallback(callback) {
     callbacks.push(callback);
 }
 
-// on click on color
+// On click on color
+// Switch color and select it
 colorsEl.addEventListener('click', function(e) {
     if (e.target.tagName === 'I') {
         color = e.target.style.color;
@@ -46,6 +49,7 @@ colorsEl.addEventListener('click', function(e) {
     }
 });
 
+// Export color module
 export function getColor() {
     return color;
 }

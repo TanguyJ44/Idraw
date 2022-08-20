@@ -1,6 +1,7 @@
 import ITool from './ITool.js';
 import { getColor } from '../modules/colors.js';
 
+// Text tool (inspired by fabric JS exemple)
 class Text extends ITool {
     constructor(canvas) {
         super(canvas);

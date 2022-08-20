@@ -12,8 +12,8 @@ const app = express();
 // Define express to static app (client folder)
 app.use(express.static('client'));
 
-// Start server in port 3000
-app.listen(3000)
+// Start server in port 80
+app.listen(80);
 
 // Login page
 app.get('/auth/login', function(req, res) {

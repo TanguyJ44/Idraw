@@ -1,5 +1,7 @@
 import ITool from './ITool.js';
 
+// Image tool (inspired by fabric JS exemple)
+// Add transparency logical
 class Image extends ITool {
     constructor(canvas) {
         super(canvas);

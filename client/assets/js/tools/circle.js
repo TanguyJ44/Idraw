@@ -1,6 +1,7 @@
 import ITool from './ITool.js';
 import { getColor } from '../modules/colors.js';
 
+// Circle tool (inspired by fabric JS exemple)
 class Circle extends ITool {
     constructor(canvas) {
         super(canvas);

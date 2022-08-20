@@ -6,6 +6,7 @@ const STATE_PANNING = 'panning';
 let lastClientX;
 let lastClientY;
 
+// Define move logic in canvas (recovered in fabric JS exemple)
 fabric.Canvas.prototype.panState = STATE_IDLE;
 fabric.Canvas.prototype.panMouseMoveHandler = async function(e) {
     if (this.panState === STATE_PANNING && e && e.e) {
@@ -24,12 +25,16 @@ fabric.Canvas.prototype.panMouseMoveHandler = async function(e) {
         this.relativePan(delta);
     }
 };
+
+// Define move logic with top in canvas (recovered in fabric JS exemple)
 fabric.Canvas.prototype.panMouseUpHandler = function(e) {
     if (e.e.button === 2) {
         this.panState = STATE_IDLE;
         this.defaultCursor = 'default';
     }
 };
+
+// Define move logic with bottom in canvas (recovered in fabric JS exemple)
 fabric.Canvas.prototype.panMouseDownHandler = function(e) {
     if (e.e.button === 2) {
         this.panState = STATE_PANNING;
@@ -38,6 +43,8 @@ fabric.Canvas.prototype.panMouseDownHandler = function(e) {
         this.defaultCursor = 'move';
     }
 };
+
+// Define move logic with drag mode in canvas (recovered in fabric JS exemple)
 fabric.Canvas.prototype.toggleDragMode = function(dragMode) {
     if (dragMode) {
         this.discardActiveObject();
@@ -61,5 +68,8 @@ fabric.Canvas.prototype.toggleDragMode = function(dragMode) {
     }
 };
 
+// Enable drag mode
 canvas.toggleDragMode(true);
+
+// Disable right click
 document.oncontextmenu = () => false;

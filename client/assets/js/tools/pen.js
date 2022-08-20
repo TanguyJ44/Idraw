@@ -2,6 +2,7 @@ import ITool from './ITool.js';
 import {getColor, setCallback} from '../modules/colors.js';
 import {canvas} from "../custom.js";
 
+// Pen tool (inspired by fabric JS exemple)
 class Pen extends ITool {
     constructor(canvas) {
         super(canvas);

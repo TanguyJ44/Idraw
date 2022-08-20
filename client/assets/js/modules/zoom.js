@@ -1,5 +1,6 @@
 import { canvas } from '../custom.js';
 
+// Define zoom logic in canvas (recovered in fabric JS exemple)
 canvas.on('mouse:wheel', function(opt) {
     const delta = opt.e.deltaY;
 

@@ -37,7 +37,7 @@ export const createNewAccount = (body) => {
                                 text: 'Bonjour ' + pseudo + ',\n\n' +
                                     'Merci de vous être inscrit sur Idraw.\n\n' +
                                     'Pour confirmer votre compte, veuillez cliquer sur le lien ci-dessous :\n\n' +
-                                    'http://localhost:3000/auth/confirm?id=' + result.insertId + '\n\n' +
+                                    'http://localhost/auth/confirm?id=' + result.insertId + '\n\n' +
                                     'Cordialement,\n\n' +
                                     'L\'équipe Idraw',
                             };

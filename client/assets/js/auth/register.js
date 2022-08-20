@@ -1,5 +1,8 @@
+// Define backend url
 const backend_url = 'http://localhost:8000/';
 
+// Event called with register button pressed
+// Register new user
 $("#regist").click(function () {
     $('#regist').prop('disabled', true);
 
@@ -28,4 +31,5 @@ $("#regist").click(function () {
     });
 });
 
+// Disable right click
 document.oncontextmenu = () => false;

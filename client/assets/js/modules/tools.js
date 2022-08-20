@@ -7,6 +7,7 @@ import Image from '../tools/image.js';
 import Eraser from '../tools/eraser.js';
 import { canvas } from '../custom.js';
 
+// Load all tools
 const tools = [
     new Select(canvas),
     new Pen(canvas),
@@ -17,6 +18,7 @@ const tools = [
     new Eraser(canvas)
 ];
 
+// Set tool in toolbar
 function referenceTool(tool) {
     const reference = tool.reference();
     const tools = document.querySelector('#tools ul');
@@ -34,6 +36,7 @@ function referenceTool(tool) {
     });
 }
 
+// Load specific tool on click
 function selectTool(toolId) {
     document.querySelectorAll('#tools li').forEach(function(el) {
         el.classList.remove('selected');
@@ -49,6 +52,7 @@ function selectTool(toolId) {
     document.querySelector('#' + toolId).classList.add('selected');
 }
 
+// reference all tools
 tools.forEach(tool => {
     referenceTool(tool);
 })

@@ -1,10 +1,14 @@
+// Called when the page has finished loading
 window.onload = function () {
     confirm();
 };
 
+// Define backend url
 const backend_url = 'http://localhost:8000/';
 
+// Confirm email address
 function confirm() {
+    // Get account id from url
     const params = new URLSearchParams(window.location.search);
     const accountId = params.get('id');
 
@@ -30,3 +34,6 @@ function confirm() {
         alert('Impossible de vérifier votre email, merci de réessayer plus tard !');
     });
 }
+
+// Disable right click
+document.oncontextmenu = () => false;
