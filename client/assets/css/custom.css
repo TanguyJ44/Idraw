@@ -50,7 +50,6 @@ header button.share {
     font-size: 18px;
     padding: 12px 15px;
     float: right;
-    margin-right: 15px;
     margin-top: 17px;
     font-weight: 600;
     cursor: pointer;
@@ -58,6 +57,19 @@ header button.share {
 
 header button.share i {
     margin-left: 5px;
+}
+
+header button.logout {
+    background-color: #c0392b;
+    color: white;
+    border: unset;
+    font-size: 18px;
+    padding: 12px 15px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 17px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 body.chat-open header {
@@ -133,6 +145,25 @@ body.chat-open header {
 
 .title span:first-child {
     font-size: 18px;
+    font-weight: bold;
+}
+
+.title span:last-child {
+    font-style: italic;
+}
+
+#last_edit {
+    font-size: 14px;
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: text-top;
+    margin-left: 10px;
+}
+
+.logo span:first-child {
+    font-size: 25px;
     font-weight: bold;
 }
 

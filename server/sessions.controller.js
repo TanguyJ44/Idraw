@@ -1,24 +1,9 @@
-/*
-Une session est un tableau blanc stocké en mémoire vive.
-Il contient les informations du tableau blanc ainsi que 2 identifiants uniques:
-    - un identifiant unique de session pour la modification du tableau
-    - un identifiant unique de session pour la lecture du tableau
-Format:
-    {
-      id: '',
-      owner_id: "",
-      reader_id: "",
-      whiteboard: {},
-      last_update: "",
-      io_clients: [],
-      chat: []
-    }
-Les sessions sont supprimées de la mémoire vive après 2 heures d'inactivité.
- */
 import { v4 as uuid } from 'uuid';
 
+// Sample session
 const sessions = [];
 
+// Link all client to the session for the chat
 export const linkSocketClient = (socket, reader_id) => {
     const session = sessions.find(session => session.reader_id === reader_id);
     if (session) {
@@ -49,6 +34,7 @@ export const linkSocketClient = (socket, reader_id) => {
     }
 }
 
+// Create a new session (and generate a new id)
 export const newSession = () => {
     const session = {
         id: uuid(),
@@ -63,9 +49,10 @@ export const newSession = () => {
     return session;
 }
 
+// Get session by id
 export const getSession = (session_id) => {
     // return session without io_clients property
-    const session =  sessions.find(session => session.owner_id === session_id);
+    const session = sessions.find(session => session.owner_id === session_id);
     if (session) {
         return {
             id: session.id,
@@ -78,6 +65,7 @@ export const getSession = (session_id) => {
     }
 };
 
+// Add a new object to the session (by session id)
 export const addObject = (session_id, object) => {
     const session = sessions.find(session => session.owner_id === session_id);
     if (session) {
@@ -93,6 +81,7 @@ export const addObject = (session_id, object) => {
     }
 };
 
+// Delete object to the session (by session id)
 export const deleteObject = (session_id, object_id) => {
     const session = sessions.find(session => session.owner_id === session_id);
     if (session) {
@@ -106,6 +95,7 @@ export const deleteObject = (session_id, object_id) => {
     }
 }
 
+// Update object property to the session (by session id)
 export const updateObject = (session_id, new_object) => {
     const session = sessions.find(session => session.owner_id === session_id);
     if (session) {
@@ -127,6 +117,7 @@ export const updateObject = (session_id, new_object) => {
     }
 }
 
+// Ge session reader for spectator (by session id)
 export const getSessionReader = (session_id) => {
     const session = sessions.find(session => session.reader_id === session_id);
 
@@ -141,7 +132,8 @@ export const getSessionReader = (session_id) => {
     return false;
 }
 
-// every 2 hours, remove sessions from memory
+// Define session lifetime
+// Every 2 hours, remove sessions from memory
 setInterval(() => {
     sessions.forEach(session => {
         if (new Date() - session.last_update > 1000 * 60 * 60 * 2) {

@@ -79,7 +79,8 @@ const disableEditing = () => {
 };
 
 const initSession = () => {
-    document.querySelector('#whiteboard_id').innerHTML = g_session.id;
+    const id_split = g_session.id.split('-');
+    document.querySelector('#whiteboard_id').innerHTML = id_split[id_split.length - 1];
     document.querySelector('#last_edit').innerHTML = frDateFromIso(g_session.last_update);
 
     socket.disconnect();
@@ -216,4 +217,22 @@ document.querySelector('.share').addEventListener('click', async () => {
     const url = frontendUrl + 'session/spectate/' + g_session.reader_id;
     await copyTextToClipboard(url);
     Swal.fire('Lien spectateur copié dans le presse-papier');
+});
+
+document.querySelector('.logout').addEventListener('click', async () => {
+    const pseudo = sessionStorage.getItem('pseudo');
+
+    Swal.fire({
+        title: pseudo + ', souhaitez-vous vous déconnecter ?',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Oui',
+        confirmButtonColor: '#27ae60',
+        denyButtonText: 'Annuler',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            sessionStorage.clear();
+            window.location.href = '/auth/login';
+        }
+    })
 });

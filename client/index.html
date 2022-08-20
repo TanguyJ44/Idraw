@@ -1,60 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <title>Whiteboard</title>
+    <title>Idraw - Plateforme de dessin collaborative</title>
+    <link rel="icon" href="assets/img/favicon.ico" />
     <base href="/">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<header>
-    <button type="button" class="back" id="refresh">
-        <i class="fa-solid fa-rotate"></i>
-    </button>
-    <div class="title">
-        <span>Tableau blanc #<span id="whiteboard_id"></span></span><br />
-        <span>Dernière modification le <span id="last_edit"></span></span>
-    </div>
-    <button type="button" class="share">
-        Partager <i class="fa-solid fa-share-alt"></i>
-    </button>
-    <button type="button" class="classic" id="toggle-chat">
-        <i class="fa-regular fa-comment-dots"></i>
-    </button>
-</header>
-<div id="tools">
-    <ul></ul>
-</div>
-<div id="colors">
-    <ul></ul>
-</div>
-<canvas id="main"></canvas>
-<div id="chat">
-    <div class="header">
-        <span>Discussion</span>
-    </div>
-    <div class="content"></div>
-    <div class="footer">
-        <input type="text" placeholder="Ecrivez votre message..." id="chat-input">
-        <button type="button" id="chat-submit">
-            <i class="fa-regular fa-paper-plane"></i>
+    <header>
+        <div class="logo">
+            <span>✏️ Idraw</span>
+        </div>
+        <button type="button" class="back" id="refresh">
+            <i class="fa-solid fa-rotate"></i>
         </button>
+        <div class="title">
+            <span>Tableau blanc #<span id="whiteboard_id"></span></span><br />
+            <span>Dernière modification le <span id="last_edit"></span></span>
+        </div>
+        <button type="button" class="logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+        <button type="button" class="share">
+            Partager <i class="fa-solid fa-share-alt"></i>
+        </button>
+        <button type="button" class="classic" id="toggle-chat">
+            <i class="fa-regular fa-comment-dots"></i>
+        </button>
+    </header>
+    <div id="tools">
+        <ul></ul>
     </div>
-</div>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
-<script src="assets/js/libraries/fabric.min.js"></script>
-<script src="assets/js/sessions.controller.js" type="module"></script>
-<script src="assets/js/custom.js" type="module"></script>
-<script src="assets/js/modules/panning.js" type="module"></script>
-<script src="assets/js/modules/colors.js" type="module"></script>
-<script src="assets/js/modules/tools.js" type="module"></script>
-<script src="assets/js/modules/zoom.js" type="module"></script>
-<script src="assets/js/modules/screenshot.js" type="module"></script>
-<script src="assets/js/chat.js" type="module"></script>
+    <div id="colors">
+        <ul></ul>
+    </div>
+    <canvas id="main"></canvas>
+    <div id="chat">
+        <div class="header">
+            <span>Discussion</span>
+        </div>
+        <div class="content"></div>
+        <div class="footer">
+            <input type="text" placeholder="Commencez à écrire ..." id="chat-input">
+            <button type="button" id="chat-submit">
+                <i class="fa-regular fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="assets/js/libraries/fabric.min.js"></script>
+    <script src="assets/js/sessions.controller.js" type="module"></script>
+    <script src="assets/js/custom.js" type="module"></script>
+    <script src="assets/js/modules/panning.js" type="module"></script>
+    <script src="assets/js/modules/colors.js" type="module"></script>
+    <script src="assets/js/modules/tools.js" type="module"></script>
+    <script src="assets/js/modules/zoom.js" type="module"></script>
+    <script src="assets/js/modules/screenshot.js" type="module"></script>
+    <script src="assets/js/chat.js" type="module"></script>
 </body>
+
 </html>

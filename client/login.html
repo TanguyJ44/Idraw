@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Idraw - Plateforme de dessin collaborative</title>
+    <link rel="icon" href="../assets/img/favicon.ico" />
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <img id="text" src="../assets/img/text.png" draggable="false">
+    <br />
+    <img id="logo" src="../assets/img/logo.png" draggable="false">
+
+    <div class="frame">
+        <h1 id="title">✏️ Idraw</h1>
+        <h2 id="subtitle">Connectez-vous à votre compte</h2>
+        <div class="form">
+            <input type="text" id="pseudo" placeholder="Pseudo">
+            <br />
+            <input type="password" id="password" placeholder="Mot de passe">
+            <br />
+            <input type="submit" id="connect" value="Connexion">
+            <br />
+            <a href="register">Pas encore de compte ?</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="../assets/js/auth/login.js"></script>
+</body>
+
+</html>
