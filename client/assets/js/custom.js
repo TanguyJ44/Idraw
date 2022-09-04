@@ -242,20 +242,26 @@ async function copyTextToClipboard(text) {
 // Copy session id to clipboard with share button click
 document.querySelector('.share').addEventListener('click', async () => {
     const url = frontendUrl + 'session/spectate/' + g_session.reader_id;
-    await copyTextToClipboard(url);
-    Swal.fire('Lien spectateur copié dans le presse-papier');
+    Swal.fire('Lien spectateur : <a href="' + url + '" target="_blank">' + url + '</a>');
 });
 
 // Logout user and redirect to login page
 document.querySelector('.logout').addEventListener('click', async () => {
-    const pseudo = sessionStorage.getItem('pseudo');
+    let pseudo = sessionStorage.getItem('pseudo');
+    let titleMsg = '';
+
+    if (pseudo === null) {
+        titleMsg = 'Souhaitez-vous quitter la zone de dessin ?';
+    } else {
+        titleMsg = pseudo + ', souhaitez-vous vous déconnecter ?'
+    }
 
     Swal.fire({
-        title: pseudo + ', souhaitez-vous vous déconnecter ?',
+        title: titleMsg,
         showDenyButton: true,
         showCancelButton: false,
         confirmButtonText: 'Oui',
-        confirmButtonColor: '#27ae60',
+        confirmButtonColor: '#7066e0',
         denyButtonText: 'Annuler',
     }).then((result) => {
         if (result.isConfirmed) {
